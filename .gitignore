@@ -1,4 +1,5 @@
 .vscode
-*.out
 *.DS_Store
-*.cpp
+main.cpp
+main.o
+main
