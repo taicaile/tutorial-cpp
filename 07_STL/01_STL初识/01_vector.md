@@ -1,5 +1,7 @@
 # Vector
 
+## Vector 插入数据
+
 ```c++
 #include <iostream>
 #include <vector>
@@ -42,6 +44,81 @@ void test01()
 int main(int argc, char const *argv[])
 {
     test01();
+    return 0;
+}
+```
+
+## Vector 插入自定义数据类型
+
+```c++
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// 自定义数据类型
+
+class Person
+{
+public:
+    Person(string name, int age)
+    {
+        this->m_Age = age;
+        this->m_Name = name;
+    }
+
+    string m_Name;
+    int m_Age;
+};
+
+void test01()
+{
+    vector<Person> v;
+    Person p1("111", 11);
+    Person p2("222", 22);
+    Person p3("333", 33);
+    Person p4("444", 44);
+    Person p5("555", 55);
+
+    v.push_back(p1);
+    v.push_back(p2);
+    v.push_back(p3);
+    v.push_back(p4);
+    v.push_back(p5);
+
+    for (vector<Person>::iterator it = v.begin(); it != v.end(); it++)
+    {
+        cout << (*it).m_Name << "\t" << (*it).m_Age << endl;
+    }
+}
+
+void test02()
+{
+    vector<Person *> v;
+    Person p1("111", 11);
+    Person p2("222", 22);
+    Person p3("333", 33);
+    Person p4("444", 44);
+    Person p5("555", 55);
+
+    v.push_back(&p1);
+    v.push_back(&p2);
+    v.push_back(&p3);
+    v.push_back(&p4);
+    v.push_back(&p5);
+
+    for (vector<Person *>::iterator it = v.begin(); it != v.end(); it++)
+    {
+        cout << (*it)->m_Name << "\t" << (*it)->m_Age << endl;
+    }
+}
+
+int main(int argc, char const *argv[])
+{
+    test01();
+    cout << "------" << endl;
+    test02();
+
     return 0;
 }
 ```
