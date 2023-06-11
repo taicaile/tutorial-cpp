@@ -1,13 +1,23 @@
 
-CC = g++
-CFLAGS = -Wall -g
+CXX = g++
+CXXFLAGS = -g -std=c++11 -Wall
 
-all: main.o
-	$(CC) $(CFLAGS) -o main main.o
+SRC=$(wildcard *.cpp)
+OBJ=$(SRC:%.cpp=%.o)
+BIN=main
+
+run: all
 	./main
 
+all: $(OBJ)
+	$(CXX) -o $(BIN) $^
+
+%.o: %.c
+	$(CXX) $@ -c $<
+
 main.o: main.cpp
-	$(CC) $(CFLAGS) -c main.cpp
+	$(CXX) $(CXXFLAGS) -c main.cpp
 
 clean:
-	rm -f main.o  main
+	rm -f *.o
+	rm $(BIN)
