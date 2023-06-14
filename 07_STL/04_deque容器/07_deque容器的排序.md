@@ -20,6 +20,8 @@ void test01()
     printDeque(d1);
 
     // 排序
+    // 支持随机访问的迭代器的容器，都可以利用sort进行排序
+    // vector 容器也可以利用sort进行排序
     sort(d1.begin(), d1.end());
     printDeque(d1);
 }
