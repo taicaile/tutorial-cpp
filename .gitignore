@@ -1,5 +1,5 @@
 .vscode
 *.DS_Store
-main.cpp
-main.o
-main
+/main*
+
+*.exe
